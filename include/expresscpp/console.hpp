@@ -1,19 +1,5 @@
 #pragma once
 
-
-#if defined(__cpp_lib_source_location) || defined(__cpp_lib_experimental_source_location)
-
-#include <experimental/source_location>
-#define EXPRESSCPP_CURRENT_SOURCE_LOCATION \
-  , const std::experimental::source_location& location = std::experimental::source_location::current()
-
-#define EXPRESSCPP_SOURCE_LOCATION , const std::experimental::source_location& location
-
-#else
-#define EXPRESSCPP_CURRENT_SOURCE_LOCATION
-#define EXPRESSCPP_SOURCE_LOCATION
-#endif
-
 #include <iostream>
 #include <mutex>
 #include <string_view>
@@ -31,10 +17,10 @@ enum class EXPRESSCPP_API LogLevel {
 class EXPRESSCPP_API Console {
  public:
   //! @brief usageConsole::Log(fmt::format("my int: {}", 2));
-  static void Log(const std::string_view message EXPRESSCPP_CURRENT_SOURCE_LOCATION);
-  static void Trace(const std::string_view message EXPRESSCPP_CURRENT_SOURCE_LOCATION);
-  static void Error(const std::string_view message EXPRESSCPP_CURRENT_SOURCE_LOCATION);
-  static void Debug(const std::string_view message EXPRESSCPP_CURRENT_SOURCE_LOCATION);
+  static void Log(const std::string_view message);
+  static void Trace(const std::string_view message);
+  static void Error(const std::string_view message);
+  static void Debug(const std::string_view message);
 
   static void setLogLevel(const LogLevel& log_level);
 
@@ -42,7 +28,7 @@ class EXPRESSCPP_API Console {
   static LogLevel log_level_;
 
   static void PrintMessage(const std::string_view prefix, const std::string_view color,
-                           const std::string_view message EXPRESSCPP_SOURCE_LOCATION);
+                           const std::string_view message);
 
   static constexpr std::string_view kReset = "\033[0m";
   static constexpr std::string_view kBlack = "\033[30m";              /* Black */
