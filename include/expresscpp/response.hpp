@@ -17,6 +17,7 @@ class Response {
   explicit Response(Session* session);
 
   void SetStatus(const uint16_t status);
+  void SetHeader(const std::string& key, const std::string& value);
 
   void KeepAlive(bool alive);
 

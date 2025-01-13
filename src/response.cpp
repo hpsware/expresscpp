@@ -21,6 +21,10 @@ void Response::SetStatus(const uint16_t status) {
   res.result(status);
 }
 
+void Response::SetHeader(const std::string& key, const std::string& value) {
+  res.set(key, value);
+}
+
 void Response::KeepAlive(bool alive) {
   res.keep_alive(alive);
 }
