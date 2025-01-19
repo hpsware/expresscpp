@@ -16,7 +16,6 @@
 #include "expresscpp/impl/routing_stack.hpp"
 #include "expresscpp/impl/session.hpp"
 #include "expresscpp/route.hpp"
-#include "nlohmann/json.hpp"
 
 namespace expresscpp {
 
