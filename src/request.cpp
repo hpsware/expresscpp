@@ -22,7 +22,7 @@ void Request::Init() {
   originalUrl_ = path_;
 }
 
-std::string Request::getBody() const {
+const std::string& Request::getBody() const {
   return body_;
 }
 

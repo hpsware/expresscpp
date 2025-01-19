@@ -57,7 +57,7 @@ class EXPRESSCPP_API Request {
 
   void SetQueryParams(const std::map<std::string, std::string> &query_params);
 
-  [[nodiscard]] std::string getBody() const;
+  [[nodiscard]] const std::string& getBody() const;
   void setBody(const std::string &body);
 
   bool match{false};
